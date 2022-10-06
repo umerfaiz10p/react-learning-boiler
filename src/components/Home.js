@@ -2,30 +2,22 @@ import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { title: 'React blog 1', body: 'lorem ipsum...', author: 'umer', id: 1 },
-    { title: '10P game Fest!', body: 'lorem ipsum...', author: 'faiz', id: 2 },
-    { title: 'React learning FS!', body: 'lorem ipsum...', author: '10P', id: 3 }
-  ])
-
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter(blog => blog.id !== id);
-    setBlogs(newBlogs);
-  }
-
-  let [count, setName] = useState(0);
+  const [blogs, setBlogs] = useState(null)
 
   useEffect(() => {
-    console.log('use effect ran');
-  }, [count])
+    fetch('http://localhost:8000/blogs')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setBlogs(data);
+      })
+  }, [])
 
   return (
     <div className="home">
-      <p>Number of UseEffect test is {count}</p>
-      <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
-      <button onClick={() => setName(++count)}>Test UseEffect hook</button>
-      <BlogList blogs={blogs.filter(blog => blog.author === 'umer')} title="Umer's Blogs" handleDelete={handleDelete}/>
-
+      {blogs && <BlogList blogs={blogs} />}
+      {blogs && <BlogList blogs={blogs.filter(blog => blog.author === 'umer')} title="Umer's Blogs"/>}
     </div>
   );
 }

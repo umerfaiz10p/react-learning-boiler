@@ -1,0 +1,7 @@
+{
+    "blogs": [
+        { "title": "React blog 1", "body": "lorem ipsum...", "author": "umer", "id": 1 },
+        { "title": "10P game Fest!", "body": "lorem ipsum...", "author": "faiz", "id": 2 },
+        { "title": "React learning FS!", "body": "lorem ipsum...", "author": "10P", "id": 3 }
+      ]
+}
