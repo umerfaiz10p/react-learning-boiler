@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './components/Create';
 import BlogDetail from './components/BlogDetail';
+import NotFoundPage from './components/NotFoundPage';
 
 function App() {
   return (
@@ -20,7 +21,10 @@ function App() {
               <Create/>
             </Route>
             <Route exact path="/blogs/:id">
-              <BlogDetail></BlogDetail>
+              <BlogDetail/>
+            </Route>
+            <Route path="*">
+              <NotFoundPage/>
             </Route>
           </Switch>
         </div>

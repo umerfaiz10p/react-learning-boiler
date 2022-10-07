@@ -103,3 +103,17 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* not found 404 */
+.not-found h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
+.not-found  p {
+  margin: 20px 0;
+}
+.not-found a{
+  margin: 20px 0;
+  text-decoration: italic;
+}
